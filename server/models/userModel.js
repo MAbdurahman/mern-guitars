@@ -28,11 +28,6 @@ const userSchema = mongoose.Schema({
 		required: [true, 'Email is required!'],
 		unique: [true, 'Email already exists!'],
 		match: [email_pattern, 'Enter a valid email!'],
-		// validate(value) {
-		// 	if (!validator.isEmail(value)) {
-		// 		throw new Error('Enter a valid email!');
-		// 	}
-		// },
 	},
 	password: {
 		type: String,

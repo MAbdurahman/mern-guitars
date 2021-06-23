@@ -1,4 +1,5 @@
 const { authService } = require('../services/serviceIndex');
+const httpStatus = require('http-status');
 
 const authController = {
 	//api/v1.0/auth/register
@@ -11,7 +12,7 @@ const authController = {
          const token = await authService.genAuthToken(user);
 
 
-         res.cookie('x-access-token', token).status(200).send({
+         res.cookie('x-access-token', token).status(httpStatus.CREATED).send({
             user, token
          });
       
@@ -21,13 +22,10 @@ const authController = {
 			//// send register email
 			// await emailService.registerEmail(email, user);
 
-			/* 			res.cookie('x-access-token', token).status(httpStatus.CREATED).send({
-				user,
-				token,
-			}); */
+
 		} catch (error) {
-			console.log(error)
-			// next(error);
+			next(error);
+
 		}
 	},
 

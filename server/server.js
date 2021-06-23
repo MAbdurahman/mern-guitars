@@ -7,8 +7,9 @@ const morgan = require('morgan');
 const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 
-const routes = require('./routes/routeIndex')
+const routes = require('./routes/routeIndex');
 const connectDatabase = require('./config/databaseConfig');
+const { handleError, convertToApiError } = require('./middleware/apiError');
 
 //**************** variables ****************//
 const app = express();
@@ -26,6 +27,8 @@ if (process.env.NODE_ENV === 'DEVELOPMENT') {
 app.use(express.json());
 app.use(xss());
 app.use(mongoSanitize());
+
+//**************** app routes ****************//
 app.use('/api/v1.0', routes);
 
 //**************** routes ****************//
@@ -33,6 +36,11 @@ app.get('/', (req, res) => {
 	res.send(`<h1 style="text-align: center">API is at Home</h1>`);
 });
 
+//**************** custom errorHandling ****************//
+app.use(convertToApiError);
+app.use((err, req, res, next) => {
+	handleError(err, res);
+});
 //**************** app listening ****************//
 const server = app.listen(PORT, () => {
 	console.log(
