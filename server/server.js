@@ -4,7 +4,10 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const morgan = require('morgan');
+const xss = require('xss-clean');
+const mongoSanitize = require('express-mongo-sanitize');
 
+const routes = require('./routes/routeIndex')
 const connectDatabase = require('./config/databaseConfig');
 
 //**************** variables ****************//
@@ -15,12 +18,15 @@ const NODE_ENV = process.env.NODE_ENV;
 //**************** config setup ****************//
 dotenv.config();
 colors.enable();
-
+connectDatabase();
 //**************** middleware ****************//
 if (process.env.NODE_ENV === 'DEVELOPMENT') {
 	app.use(morgan('dev'));
 }
 app.use(express.json());
+app.use(xss());
+app.use(mongoSanitize());
+app.use('/api/v1.0', routes);
 
 //**************** routes ****************//
 app.get('/', (req, res) => {
@@ -34,31 +40,3 @@ const server = app.listen(PORT, () => {
 			.yellow
 	);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//
-//**************** imports ****************//

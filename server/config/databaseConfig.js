@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const colors = require('colors');
+/* const colors = require('colors');
 
-colors.enable();
+colors.enable(); */
 
 const connectDatabase = async () => {
 	try {
