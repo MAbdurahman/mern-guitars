@@ -24,6 +24,10 @@ app.use(express.json());
 
 //**************** routes ****************//
 
+app.get('/', (req, res) => {
+	res.send(`<h1 style="text-align: center">API is at Home</h1>`);
+});
+
 //**************** app listening ****************//
 const server = app.listen(PORT, () => {
 	console.log(

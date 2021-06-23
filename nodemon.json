@@ -1,3 +1,4 @@
 {
+	"delay": "2000",
 	"watch": ["server"]
 }
