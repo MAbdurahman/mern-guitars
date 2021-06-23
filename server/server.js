@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === 'DEVELOPMENT') {
 app.use(express.json());
 
 //**************** routes ****************//
-
 app.get('/', (req, res) => {
 	res.send(`<h1 style="text-align: center">API is at Home</h1>`);
 });
