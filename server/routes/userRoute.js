@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userControllers');
+const userControllers = require('../controllers/userControllers');
 const auth = require('../middleware/auth');
+
+router.route('/profile')
+   .get(auth('readOwn', 'profile'), userControllers.profile)
 
 
 
