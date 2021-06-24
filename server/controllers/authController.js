@@ -46,6 +46,13 @@ const authController = {
 	async isauth(req, res, next) {
 		res.json(req.user);
 	},
+
+
+	async dog(req, res, next) {
+		res.json({
+			message: 'woof'
+		})
+	}
 };
 
 

@@ -1,6 +1,7 @@
 const passport = require('passport');
 const httpStatus = require('http-status');
 const { ApiError } = require('./apiError');
+const { roles } = require('../config/rolesConfig');
 
 const verify = (req, res, resolve, reject, rights) => async (err, user) => {
 	if (err || !user) {
@@ -10,23 +11,23 @@ const verify = (req, res, resolve, reject, rights) => async (err, user) => {
 	}
 
 	req.user = user;
-   resolve();
 
-	// if (rights.length) {
-	// 	const action = rights[0]; 
-	// 	const resource = rights[1];
-	// 	const permission = roles.can(req.user.role)[action](resource);
-	// 	if (!permission.granted) {
-	// 		return reject(
-	// 			new ApiError(
-	// 				httpStatus.FORBIDDEN,
-	// 				'PERMISSION FORBIDDEN!'
-	// 			)
-	// 		);
-	// 	}
-	// 	res.locals.permission = permission;
-	// }
-	// resolve();
+	if (rights.length) {
+		const action = rights[0]; 
+		const resource = rights[1];
+		const permission = roles.can(req.user.role)[action](resource);
+		if (!permission.granted) {
+			return reject(
+				new ApiError(
+					httpStatus.FORBIDDEN,
+					'PERMISSION FORBIDDEN!'
+				)
+			);
+		}
+		res.locals.permission = permission;
+	}
+	
+	resolve();
 };
 
 const auth = (...rights) => async (req, res, next) => {
