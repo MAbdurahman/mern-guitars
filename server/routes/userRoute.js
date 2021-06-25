@@ -8,7 +8,11 @@ router
 	.get(auth('readOwn', 'profile'), userControllers.profile)
 	.patch(auth('updateOwn', 'profile'), userControllers.updateProfile);
 
-   
+   router.patch(
+		'/email',
+		auth('updateOwn', 'profile'),
+		userControllers.updateUserEmail
+	);
 
 
 

@@ -21,13 +21,13 @@ const updateUserProfile = async req => {
 		const user = await User.findOneAndUpdate(
 			{ _id: req.user._id },
 			{
-				$set: {
+				"$set": {
 					...req.body.data, /// make sure to validate what you want to patch !!!!!!
 				},
 			},
 			{ new: true }
 		);
-		
+
 		if (!user) {
 			throw new ApiError(httpStatus.NOT_FOUND, 'User Not Found!');
 		}
@@ -37,17 +37,39 @@ const updateUserProfile = async req => {
 	} catch (error) {
 		throw error;
 	}
+
 };
 
+const updateUserEmail = async req => {
+	try {
+		if (await User.emailTaken(req.body.newemail)) {
+			throw new ApiError(httpStatus.BAD_REQUEST, 'Email Already Exists!');
+		}
 
-
-
-
+		const user = await User.findOneAndUpdate(
+			{ _id: req.user._id, email: req.user.email },
+			{
+				"$set": {
+					email: req.body.newemail,
+					verified: false,
+				},
+			},
+			{ new: true }
+		);
+		if (!user) {
+			throw new ApiError(httpStatus.NOT_FOUND, 'User Not Found!');
+		}
+		return user;
+		
+	} catch (error) {
+		throw error;
+	}
+};
 
 module.exports = {
 	findUserByEmail,
 	findUserById,
 	updateUserProfile,
-	// updateUserEmail,
+	updateUserEmail,
 	validateToken,
 };
