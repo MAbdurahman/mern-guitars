@@ -16,6 +16,29 @@ const findUserById = async _id => {
 	return await User.findById(_id);
 };
 
+const updateUserProfile = async req => {
+	try {
+		const user = await User.findOneAndUpdate(
+			{ _id: req.user._id },
+			{
+				$set: {
+					...req.body.data, /// make sure to validate what you want to patch !!!!!!
+				},
+			},
+			{ new: true }
+		);
+		
+		if (!user) {
+			throw new ApiError(httpStatus.NOT_FOUND, 'User Not Found!');
+		}
+
+		return user;
+
+	} catch (error) {
+		throw error;
+	}
+};
+
 
 
 
@@ -24,7 +47,7 @@ const findUserById = async _id => {
 module.exports = {
 	findUserByEmail,
 	findUserById,
-	// updateUserProfile,
+	updateUserProfile,
 	// updateUserEmail,
 	validateToken,
 };

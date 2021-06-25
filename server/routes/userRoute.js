@@ -3,8 +3,12 @@ const router = express.Router();
 const userControllers = require('../controllers/userControllers');
 const auth = require('../middleware/auth');
 
-router.route('/profile')
-   .get(auth('readOwn', 'profile'), userControllers.profile)
+router
+	.route('/profile')
+	.get(auth('readOwn', 'profile'), userControllers.profile)
+	.patch(auth('updateOwn', 'profile'), userControllers.updateProfile);
+
+   
 
 
 

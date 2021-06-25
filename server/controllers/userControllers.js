@@ -9,8 +9,18 @@ const userControllers = {
 			if (!user) {
 				throw new ApiError(httpStatus.NOT_FOUND, 'User Not Found!');
 			}
-         
+
 			res.json(res.locals.permission.filter(user._doc));
+			
+		} catch (error) {
+			next(error);
+		}
+	},
+
+	async updateProfile(req, res, next) {
+		try {
+			const user = await userService.updateUserProfile(req);
+			res.json(user); ///. filter response fields
 
 		} catch (error) {
 			next(error);
