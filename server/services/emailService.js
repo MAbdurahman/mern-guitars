@@ -17,7 +17,7 @@ const registerEmail = async (userEmail, user) => {
 		let mailGenerator = new Mailgen({
 			theme: 'default',
 			product: {
-				name: 'Waves guitars',
+				name: '🎸G-Spot',
 				link: `${process.env.EMAIL_MAIL_URL}`,
 			},
 		});
@@ -25,12 +25,13 @@ const registerEmail = async (userEmail, user) => {
 		const email = {
 			body: {
 				name: userEmail,
-				intro: "Welcome to Waves! We're very excited to have you on board.",
+				intro:
+					"Thanks for registering to G-Spot! We're very excited to have you on board.🎸🪕🎻",
 				action: {
-					instructions: 'To get validate your account, please click here:',
+					instructions: 'To validate your account, click here:',
 					button: {
 						color: '#1a73e8',
-						text: 'Validate your account',
+						text: 'Validate Account',
 						link: `${process.env.SITE_DOMAIN}verification?t=${emailToken}`,
 					},
 				},
@@ -43,12 +44,13 @@ const registerEmail = async (userEmail, user) => {
 		let message = {
 			from: process.env.EMAIL,
 			to: userEmail,
-			subject: 'Welcome to waves',
+			subject: 'Welcome to G-Spot!',
 			html: emailBody,
 		};
 
 		await transporter.sendMail(message);
 		return true;
+
 	} catch (error) {
 		throw error;
 	}

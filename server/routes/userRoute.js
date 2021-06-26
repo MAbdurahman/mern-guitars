@@ -13,7 +13,8 @@ router
 		auth('updateOwn', 'profile'),
 		userControllers.updateUserEmail
 	);
-
+	
+	router.get('/verify', userControllers.verifyAccount);
 
 
 

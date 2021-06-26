@@ -1,4 +1,4 @@
-const { authService } = require('../services/serviceIndex');
+const { authService, emailService } = require('../services/serviceIndex');
 const httpStatus = require('http-status');
 
 const authController = {
@@ -6,22 +6,14 @@ const authController = {
 	async register(req, res, next) {
 		try {
 			const { email, password } = req.body;
-
          const user = await authService.createUser(email, password);
-
          const token = await authService.genAuthToken(user);
 
+			await emailService.registerEmail(email, user);
 
          res.cookie('x-access-token', token).status(httpStatus.CREATED).send({
             user, token
          });
-      
-			// const user = await authService.createUser(email, password);
-			// const token = await authService.genAuthToken(user);
-
-			//// send register email
-			// await emailService.registerEmail(email, user);
-
 
 		} catch (error) {
 			next(error);
@@ -42,17 +34,11 @@ const authController = {
 			next(error);
 		}
 	},
-
+	//api/v1.0/auth/isauth
 	async isauth(req, res, next) {
 		res.json(req.user);
 	},
 
-
-	async dog(req, res, next) {
-		res.json({
-			message: 'woof'
-		})
-	}
 };
 
 
