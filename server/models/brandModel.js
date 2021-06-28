@@ -10,6 +10,12 @@ const brandSchema = mongoose.Schema({
 	},
 });
 
+brandSchema.statics.brandTaken = async function(brandname) {
+	const newBrand = await this.findOne({brandname});
+	return !!newBrand;
+}
+
+
 const Brand = mongoose.model('Brand', brandSchema);
 
 module.exports = { Brand };

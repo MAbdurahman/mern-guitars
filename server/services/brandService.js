@@ -4,6 +4,10 @@ const httpStatus = require('http-status');
 
 const addBrand = async brandname => {
 	try {
+      if (await Brand.brandTaken(brandname)) {
+         throw new ApiError(httpStatus.BAD_REQUEST, `${brandname} already exists!`);
+      }
+
 		const brand = new Brand({
 			name: brandname,
 		});
@@ -31,7 +35,7 @@ const deleteBrandById = async id => {
 	try {
 		const brand = await Brand.findByIdAndRemove(id);
 		return brand;
-      
+
 	} catch (error) {
 		throw error;
 	}
@@ -40,7 +44,7 @@ const deleteBrandById = async id => {
 const getBrands = async args => {
 	try {
 		let order = args.order ? args.order : 'desc';
-		let limit = args.limit ? args.limit : 100;
+		let limit = args.limit ? args.limit : 8;
 
 		const brands = await Brand.find({})
 			.sort([['_id', order]])
