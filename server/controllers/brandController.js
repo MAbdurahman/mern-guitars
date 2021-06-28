@@ -5,7 +5,7 @@ const brandController = {
 		try {
 			const brand = await brandService.addBrand(req.body.brandname);
 			res.json(brand);
-         
+
 		} catch (error) {
 			next(error);
 		}
@@ -14,9 +14,12 @@ const brandController = {
 		try {
 			const id = req.params.id;
 			const brand = await brandService.getBrandById(id);
+
 			res.json(brand);
+
 		} catch (error) {
 			next(error);
+
 		}
 	},
 	async deleteBrandById(req, res, next) {
@@ -24,6 +27,7 @@ const brandController = {
 			const id = req.params.id;
 			const brand = await brandService.deleteBrandById(id);
 			res.json(brand);
+
 		} catch (error) {
 			next(error);
 		}
@@ -32,6 +36,7 @@ const brandController = {
 		try {
 			const brands = await brandService.getBrands(req.body);
 			res.json(brands);
+         
 		} catch (error) {
 			next(error);
 		}

@@ -7,7 +7,7 @@ const addBrand = async brandname => {
 		const brand = new Brand({
 			name: brandname,
 		});
-      
+
 		await brand.save();
 		return brand;
 
@@ -31,6 +31,7 @@ const deleteBrandById = async id => {
 	try {
 		const brand = await Brand.findByIdAndRemove(id);
 		return brand;
+      
 	} catch (error) {
 		throw error;
 	}
