@@ -27,9 +27,9 @@ const registerEmail = async (userEmail, user) => {
 				name: userEmail,
 				intro:
 					"Thanks for registering to G-Spot! We're very excited to have you on board.🎸🪕🎻",
-				action: {
+				action:{
 					instructions: 'To validate your account, click here:',
-					button: {
+					button:{
 						color: '#1a73e8',
 						text: 'Validate Account',
 						link: `${process.env.SITE_DOMAIN}verification?t=${emailToken}`,
