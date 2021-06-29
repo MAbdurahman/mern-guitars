@@ -10,8 +10,8 @@ const brandSchema = mongoose.Schema({
 	},
 });
 
-brandSchema.statics.brandTaken = async function(brandname) {
-	const newBrand = await this.findOne({brandname});
+brandSchema.statics.brandTaken = async function(name) {
+	const newBrand = await this.findOne({name});
 	return !!newBrand;
 }
 

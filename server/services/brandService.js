@@ -5,7 +5,7 @@ const httpStatus = require('http-status');
 const addBrand = async brandname => {
 	try {
       if (await Brand.brandTaken(brandname)) {
-         throw new ApiError(httpStatus.BAD_REQUEST, `${brandname} already exists!`);
+         throw new ApiError(httpStatus.BAD_REQUEST, `The ${brandname} brand already exists!`);
       }
 
 		const brand = new Brand({
