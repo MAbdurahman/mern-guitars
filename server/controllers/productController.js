@@ -36,12 +36,11 @@ const productController = {
 			const _id = req.params.id;
 			const product = await productService.deleteProductById(_id);
 			res.json(product);
-         
+
 		} catch (error) {
 			next(error);
 		}
 	},
-
 
 	async allProducts(req, res, next) {
 		try {

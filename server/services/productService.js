@@ -64,6 +64,7 @@ const allProducts = async req => {
 			.limit(parseInt(req.query.limit));
 
 		return products;
+		
 	} catch (error) {
 		throw error;
 	}
