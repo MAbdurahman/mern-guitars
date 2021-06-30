@@ -40,12 +40,12 @@ const productSchema = mongoose.Schema({
 	},
 	itemSold: {
 		type: Number,
-		required: [true, 'Ghe number sold is required!'],
+		required: [true, 'The number sold is required!'],
 		default: 0,
 	},
 	shipping: {
 		type: Boolean,
-		required: [true, 'Specify if this product has free shipping'],
+		required: [true, 'Specify, free shipping or not!'],
 		default: false,
 	},
 	images: {
