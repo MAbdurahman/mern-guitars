@@ -36,7 +36,6 @@ const productController = {
 			const _id = req.params.id;
 			const product = await productService.deleteProductById(_id);
 			res.json(product);
-
 		} catch (error) {
 			next(error);
 		}
@@ -46,9 +45,19 @@ const productController = {
 		try {
 			const products = await productService.allProducts(req);
 			res.json(products);
+		} catch (error) {
+			next(error);
+		}
+	},
+
+	async paginateProducts(req, res, next) {
+		try {
+			const products = await productService.paginateProducts(req);
+			res.json(products);
 
 		} catch (error) {
 			next(error);
+			
 		}
 	},
 };

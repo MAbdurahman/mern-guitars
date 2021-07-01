@@ -20,4 +20,6 @@ router
 
 router.get('/all', productController.allProducts);
 
+router.post('/paginate/all', productController.paginateProducts);
+
 module.exports = router;
