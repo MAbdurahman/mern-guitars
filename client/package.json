@@ -4,6 +4,8 @@
   "private": true,
   "proxy": "http://127.0.0.1:5000",
   "dependencies": {
+    "@material-ui/core": "4.11.3",
+    "@material-ui/icons": "4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -15,6 +17,7 @@
     "react-bootstrap": "^1.5.2",
     "react-cookies": "^0.1.1",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-moment": "^1.1.1",
     "react-paypal-button-v2": "^2.6.3",
     "react-redux": "^7.2.3",
@@ -36,7 +39,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
   "eslintConfig": {
     "extends": [
       "react-app",
