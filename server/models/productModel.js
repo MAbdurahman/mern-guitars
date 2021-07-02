@@ -65,7 +65,6 @@ productSchema.statics.modelTaken = async function(model) {
 
 productSchema.plugin(aggregatePaginate);
 
-
 const Product = mongoose.model('Product', productSchema);
 module.exports = {
 	Product,
