@@ -346,8 +346,8 @@ header {
 }
 
 header .logo {
-   /* font-family: 'Monoton', cursive; */
-   font-family: 'Otomanopee One', sans-serif;
+   font-family: 'Monoton', cursive;
+   /* font-family: 'Otomanopee One', sans-serif; */
    color: #ffffff;
    font-size: 40px;
    padding: 11px 0px;
