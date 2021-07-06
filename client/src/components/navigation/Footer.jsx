@@ -16,7 +16,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 export default function Footer() {
 	return (
-		<footer id='footer' className='footer'>
+		<footer id='footer' className='footer container-fluid'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-lg-5 col-xs-12 about-company mt-lg-3'>
@@ -27,6 +27,7 @@ export default function Footer() {
 						<p className='pr-5 text-white-50'>
 							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 							Quasi dolorem iusto cupiditate laboriosam natus quo!
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ipsa.
 						</p>
 						<p className='social-icons'>
 							<a
@@ -84,16 +85,31 @@ export default function Footer() {
 						<p className='text-white-50 mb-1 link'>
 							<PhoneIcon />
 							<a href='tel:901-425-5525'>123-456-7890</a>
-							
 						</p>
 						<p className='text-white-50 mb-2 link'>
 							<EmailIcon />{' '}
-							<a
-								href='mailto:mdbdrrhm2@gmail.com'
-								target='_blank'
-							>
-							guitars@gspot.com
+							<a href='mailto:mdbdrrhm2@gmail.com' target='_blank'>
+								guitars@gspot.com
 							</a>
+						</p>
+					</div>
+				</div>
+				<div className='row'>
+					<div className='col copyright'>
+						<p className='text-white-50 text-center link'>
+							<small>
+								<a href='#' target='_blank'>
+									Terms and Conditions
+								</a>
+								&nbsp;|&nbsp;
+								<a href='#' target='_blank'>
+									Privacy
+								</a>
+								<br />
+							</small>
+							<small className='text-white-50'>
+								&copy;&nbsp;2021 G-Spot, All rights reserved
+							</small>
 						</p>
 					</div>
 				</div>
