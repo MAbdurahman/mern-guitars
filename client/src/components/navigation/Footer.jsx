@@ -103,7 +103,7 @@ export default function Footer() {
 								</a>
 								&nbsp;|&nbsp;
 								<a href='#' target='_blank'>
-									Privacy
+									Privacy Policy
 								</a>
 								<br />
 							</small>
