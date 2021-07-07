@@ -1,18 +1,10 @@
 import React from 'react';
-import ContactsIcon from '@material-ui/icons/Contacts';
-import TimelapseIcon from '@material-ui/icons/Timelapse';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import {
 	Navbar,
-	Nav,
-	Container,
-	NavDropdown,
-	Image,
-	ListGroup,
-	ListGroupItem,
+	Image
 } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 
 export default function Footer() {
 	return (
@@ -32,20 +24,18 @@ export default function Footer() {
 						<p className='social-icons'>
 							<a
 								href='!#'
-								id='facebook'
 								className='text-white-50 social-icon facebook'
 							>
-								<i class='fab fa-facebook-square'></i>
+								<i className='fab fa-facebook-square'></i>
 							</a>
 							<a href='!#' className='text-white-50 social-icon twitter'>
-								<i class='fab fa-twitter-square'></i>
+								<i className='fab fa-twitter-square'></i>
 							</a>
 							<a
 								href='!#'
-								to='!#'
 								className='text-white-50 social-icon instagram'
 							>
-								<i class='fab fa-instagram-square'></i>
+								<i className='fab fa-instagram-square'></i>
 							</a>
 						</p>
 					</div>
@@ -54,19 +44,19 @@ export default function Footer() {
 						<div className='link-container'>
 							<ul className='m-0 p-0 link-list'>
 								<li className='link text-white-50'>
-									<a href=''>Home</a>
+									<a href='!#'>Home</a>
 								</li>
 								<li className='link text-white-50'>
-									<a href=''>About</a>
+									<a href='!#'>About</a>
 								</li>
 								<li className='link text-white-50'>
-									<a href=''>Team</a>
+									<a href='!#'>Team</a>
 								</li>
 								<li className='link text-white-50'>
-									<a href=''>Products</a>
+									<a href='!#'>Products</a>
 								</li>
 								<li className='link text-white-50'>
-									<a href=''>Contact</a>
+									<a href='!#'>Contact</a>
 								</li>
 							</ul>
 						</div>
@@ -88,7 +78,7 @@ export default function Footer() {
 						</p>
 						<p className='text-white-50 mb-2 link'>
 							<EmailIcon />{' '}
-							<a href='mailto:mdbdrrhm2@gmail.com' target='_blank'>
+							<a href='mailto:mdbdrrhm2@gmail.com' target='_blank' rel='noreferrer'>
 								guitars@gspot.com
 							</a>
 						</p>
@@ -98,11 +88,11 @@ export default function Footer() {
 					<div className='col copyright'>
 						<p className='text-white-50 text-center link'>
 							<small>
-								<a href='#' target='_blank'>
+								<a href='!#' target='_blank' rel='noreferrer'>
 									Terms and Conditions
 								</a>
 								&nbsp;|&nbsp;
-								<a href='#' target='_blank'>
+								<a href='!#' target='_blank' rel='noreferrer'>
 									Privacy Policy
 								</a>
 								<br />
