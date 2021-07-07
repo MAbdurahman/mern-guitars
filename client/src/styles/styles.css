@@ -587,7 +587,7 @@ footer .footer-inner-container {
    margin-bottom: -1.1em;
    font-size: 'Roboto', sans-serif;
    letter-spacing: 1px;
-   color: #ffffff;
+   color: #f5f5f5;
    
 }
 
@@ -611,16 +611,14 @@ footer .social-icons {
    
 }
 footer .social-icon .fab {
-   height: 23px !important;
+   /* height: 23px !important; */
    margin-right: 1em;
    font-size: 1.7rem;
    color: #f5f5f5;
    cursor: pointer;
-   transition: color, background-color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   -webkit-transition: color, background-color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   -moz-transition: color, background-color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   -ms-transition: color, background-color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-   -o-transition: color, background-color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   transition: color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+               background-color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   
 }
 footer .social-icon:nth-child(1) .fab:hover{
    color: #3b5998 !important;
@@ -636,6 +634,7 @@ footer .social-icon:nth-child(3) .fab:hover {
    color: #f58829 !important;
    background-color: #f5f5f5;
 }
+
 
 footer .link-container {
    display: flex;
@@ -654,7 +653,7 @@ transition: color .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 }
 footer .link a:hover {
-   color: #9954bb;
+   color: #bb7cdb;
 }
 
 footer .copyright p {
