@@ -1,9 +1,12 @@
 import React from 'react';
+import CarouselContainer from '../carousel/CarouselContainer';
+
 
 export default function Home() {
    return (
       <div className='home'>
-         <h1>homepage</h1>
+         <CarouselContainer />
+      
       </div>
    )
 }
